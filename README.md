@@ -8,18 +8,42 @@ is not owned by any individual product such as MediaCat, ASTV, or AdvMedia.
 
 ## Organisation
 
-Content is organised by **artefact type**, not by consuming product.
+Content is organised by **artefact purpose/type**, not by consuming product.
 
-Initial structure:
+For media-entertainment assets, use this convention:
 
 ```text
-images/
-  radio/
-  tv/
+media-assets/
+  <domain>/
+    images/
+    banners/
+    theme-music/
 ```
 
-Additional top-level artefact types should only be introduced when there is a
-real requirement.
+Initial domains:
+
+```text
+media-assets/
+  radio/
+    images/
+    banners/
+    theme-music/
+  tv/
+    images/
+    banners/
+    theme-music/
+```
+
+Examples:
+
+```text
+media-assets/radio/images/classic-fm.png
+media-assets/tv/banners/bbc-iplayer-wide.png
+media-assets/tv/theme-music/bbc-news.mp3
+```
+
+Additional domains or asset-type folders should only be introduced when there is
+a real requirement.
 
 ## Public-content rule
 
@@ -34,12 +58,28 @@ Do not commit:
 
 ## Intended delivery
 
-The repository is intended to support two delivery paths:
+The repository supports two delivery paths:
 
-1. public HTTPS delivery for consumers such as Google Cast, using GitHub Pages
-   or another agreed public delivery layer; and
+1. public HTTPS delivery through GitHub Pages for consumers such as Google Cast; and
 2. read-only replication of the same assets onto local Home Assistant instances
    for local serving.
 
-The public delivery mechanism and local replication mechanism are still being
-designed.
+The GitHub Pages base URL is:
+
+```text
+https://83degrees.github.io/ha-assets/
+```
+
+A file such as:
+
+```text
+media-assets/radio/images/classic-fm.png
+```
+
+is therefore published at:
+
+```text
+https://83degrees.github.io/ha-assets/media-assets/radio/images/classic-fm.png
+```
+
+The local Home Assistant replication mechanism is still being designed.
